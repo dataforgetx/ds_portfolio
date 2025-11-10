@@ -1,0 +1,49 @@
+config: 
+  error_email: 
+    - john.doe@dfps.texas.gov
+    - jane.doe@dfps.texas.gov
+  output_email: Richard.Ortega@dfps.texas.gov
+  # SharePoint configuration (optional - if enabled, files will be uploaded to SharePoint instead of emailed)
+  sharepoint:
+    enabled: false  # Set to true to enable SharePoint uploads
+    site_url: https://yourorg.sharepoint.com/sites/your_site_name  # SharePoint site URL
+    username: your_username@yourorg.com  # Username for authentication
+    password: your_password  # Password for authentication (consider using environment variable)
+    folder_path: /Shared Documents/DPS Reports  # Target folder path in SharePoint
+    notify_email: Richard.Ortega@dfps.texas.gov  # Email to notify when files are uploaded (optional)
+  # Directory structure for data files (active/current files)
+  data:
+    base: /home/scripts/dps_batch/data
+    from_dps: /home/scripts/dps_batch/data/from_dps      # Files retrieved from DPS SFTP
+    to_dps: /home/scripts/dps_batch/data/to_dps         # Files sent to DPS (from send2dps.py)
+    to_sharept: /home/scripts/dps_batch/data/to_sharept  # Output files from receivedps.py (emailed to Richard Ortega)
+  # Directory structure for archived files (historical files with timestamps)
+  archive:
+    base: /home/scripts/dps_batch/archive
+    from_dps: /home/scripts/dps_batch/archive/from_dps    # Archived files from DPS
+    to_dps: /home/scripts/dps_batch/archive/to_dps        # Archived files sent to DPS
+    to_sharept: /home/scripts/dps_batch/archive/to_sharept # Archived output files from receivedps.py
+  # Directory structure for log files
+  log:
+    base: /home/scripts/dps_batch/logs
+    to_dps: /home/scripts/dps_batch/logs/to_dps      # Logs for send2dps.py workflow
+    from_dps: /home/scripts/dps_batch/logs/from_dps # Logs for receivedps.py workflow
+  # SFTP configuration for DPS
+  sftp:
+    hostname: url
+    username: username
+    password: password
+    remote_dir_from_dps: TO_DFPS
+    remote_dir_to_dps:  FROM_DPS
+
+env: 
+  dev:
+     db: qawh
+     dbuser: caps
+  prod:
+     db: ware
+     dbuser: caps
+  qawh:
+     db: qawh
+     dbuser: caps
+

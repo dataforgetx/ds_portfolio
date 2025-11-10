@@ -1,0 +1,12 @@
+dps_batch/
+├── data/
+│   ├── from_dps/          # Files retrieved from DPS SFTP
+│   ├── to_dps/            # Files sent to DPS (from send2dps.py)
+│   └── to_sharept/        # Output files from receivedps.py (emailed to Richard Ortega)
+├── archive/
+│   ├── from_dps/          # Archived files from DPS
+│   ├── to_dps/            # Archived files sent to DPS
+│   └── to_sharept/        # Archived output files from receivedps.py
+└── logs/
+    ├── to_dps/            # Logs for send2dps.py workflow
+    └── from_dps/          # Logs for receivedps.py workflow
